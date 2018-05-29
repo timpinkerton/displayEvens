@@ -1,6 +1,4 @@
-
 function validateItems() {
-  // clearErrors();
 
   var startNumInput = document.forms["displayEvens"]["startNumInput"].value;
   var endNumInput = document.forms["displayEvens"]["endNumInput"].value;
@@ -18,18 +16,21 @@ function validateItems() {
   return false;
 }
 
-function calculation(){
-  const start = document.getElementById("startNumInput").value;
-  const end = document.getElementById("endNumInput").value;
-  const counter = document.getElementById("stepNumInput").value;
+function calculation() {
+  const start = parseInt(document.getElementById("startNumInput").value);
+  const end = parseInt(document.getElementById("endNumInput").value);
+  const counter = parseInt(document.getElementById("stepNumInput").value);
 
-  var evensArray = [];
+  if (start >= end) {
+    alert("Ending Number must be greater that the Starting Number.");
+  } else {
+    var evensArray = [];
 
-  for (var index = 2; index < 19; index+=2) {
-    if (index % 2 == 0){
-      evensArray.push([index]);
+    for (var index = start; index < end; index += counter) {
+      if (index % 2 == 0) {
+        evensArray.push([index]);
+      }
     }
   }
-
   return evensArray;
 }
